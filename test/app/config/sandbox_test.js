@@ -1,6 +1,8 @@
 module.exports = {
   plugins: {
-    appSidebar: {},
+    appSidebar: {
+      interceptUrls: []
+    },
     appWebserver: {}
   }
 };
