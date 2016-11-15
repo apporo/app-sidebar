@@ -30,11 +30,15 @@ button {
  border: 0;
 }
 
-.btn-nav:hover { cursor: pointer; }
+div.bar {
+  background-color: red;
+}
 
-.btn-nav:hover .bar { background: #17BEBB; }
+.micejs-sidebar .btn-nav:hover { cursor: pointer; }
 
-.bar {
+.micejs-sidebar .btn-nav:hover .bar { background: #17BEBB; }
+
+.micejs-sidebar .bar {
   display: block;
   height: 5px;
   width: 50px;
@@ -42,12 +46,13 @@ button {
   margin: 10px auto;
 }
 
-.btn-nav {
+.micejs-sidebar .btn-nav {
   display: block;
   padding: 15px 0;
   width: 50px;
   position: fixed;
   left: 20px;
+  bottom: 15px;
   margin: 0 auto;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -56,11 +61,11 @@ button {
   transition: all 1s ease;
 }
 
-.btn-nav:focus { outline: none; }
+.micejs-sidebar .btn-nav:focus { outline: none; }
 
-.middle { margin: 0 auto; }
+.micejs-sidebar .middle { margin: 0 auto; }
 
-.bar {
+.micejs-sidebar .bar {
   -webkit-transition: all .7s ease;
   -moz-transition: all .7s ease;
   -ms-transition: all .7s ease;
@@ -68,9 +73,9 @@ button {
   transition: all .7s ease;
 }
 
-.animated { z-index: 999; }
+.micejs-sidebar .animated { z-index: 999; }
 
-.animated .arrow-top-r {
+.micejs-sidebar .animated .arrow-top-r {
   -webkit-transform: rotateZ(-45deg) translateY(11px);
   -moz-transform: rotateZ(-45deg) translateY(11px);
   -ms-transform: rotateZ(-45deg) translateY(11px);
@@ -79,7 +84,7 @@ button {
   width: 25px;
 }
 
-.animated .arrow-middle-r {
+.micejs-sidebar .animated .arrow-middle-r {
   -webkit-transform: translateX(25px);
   -moz-transform: translateX(25px);
   -ms-transform: translateX(25px);
@@ -87,7 +92,7 @@ button {
   transform: translateX(25px);
 }
 
-.animated .arrow-bottom-r {
+.micejs-sidebar .animated .arrow-bottom-r {
   -webkit-transform: rotateZ(45deg) translateY(-11px);
   -moz-transform: rotateZ(45deg) translateY(-11px);
   -ms-transform: rotateZ(45deg) translateY(-11px);
@@ -96,7 +101,7 @@ button {
   width: 25px;
 }
 
-.nav-container {
+.micejs-sidebar .nav-container {
   position: absolute;
   left: -50%;
   top: 0;
@@ -105,7 +110,7 @@ button {
   width: 150px;
 }
 
-.nav-list {
+.micejs-sidebar .nav-list {
   cursor: pointer;
   list-style-type: none;
   top: 50%;
@@ -120,7 +125,7 @@ button {
   transform: translateY(-50%);
 }
 
-.list-item {
+.micejs-sidebar .list-item {
   margin: 20px auto;
   border: 2px solid #fff;
   width: 50px;
@@ -132,7 +137,7 @@ button {
   transition: all 1s ease;
 }
 
-.list-item:hover {
+.micejs-sidebar .list-item:hover {
   border: 2px solid #17BEBB;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -141,7 +146,7 @@ button {
   transition: all 1s ease;
 }
 
-.list-item:hover .fa {
+.micejs-sidebar .list-item:hover .fa {
   color: #17BEBB;
   -webkit-transform: scale(1.5);
   -moz-transform: scale(1.5);
@@ -155,20 +160,21 @@ button {
   transition: all 1s ease;
 }
 
-.list-item a {
+.micejs-sidebar .list-item a {
   color: #fff;
   font-size: 1.7em;
   display: block;
   width: 100%;
 }
 
-.fa {
+.micejs-sidebar .fa {
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
+
  @keyframes
 showNav { from {
  left: -100%;
@@ -191,14 +197,12 @@ showNav { from {
 to { left: 0; }
 }
  @-o-keyframes
-showNav { from {
- left: -100%;
+ showNav {
+  from { left: -100%; }
+  to { left: 0; }
 }
 
-to { left: 0; }
-}
-
-.showNav {
+.micejs-sidebar .showNav {
   -webkit-animation: showNav .5s ease forwards;
   -moz-animation: showNav 1s ease forwards;
   -o-animation: showNav 1s ease forwards;
@@ -233,14 +237,15 @@ hideNav { from {
 to { left: -100%; }
 }
 
-.hideNav {
+.micejs-sidebar .hideNav {
   -webkit-animation: hideNav 1s ease forwards;
   -moz-animation: hideNav 1s ease forwards;
   -o-animation: hideNav 1s ease forwards;
   animation: hideNav 1s ease forwards;
 }
 
-.hidden { display: none; }
+.micejs-sidebar .hidden { display: none; }
+
 h1 { position:absolute; top:150px; left:250px; color:#fff;}
 .jquery-script-ads { position:absolute; top:350px; left:250px;}
 </style>
@@ -248,21 +253,22 @@ h1 { position:absolute; top:150px; left:250px; color:#fff;}
 
 <body>
 <h1>Smooth Sidebar Navigation Demo</h1>
-<button class="btn-nav">
-<div class="bar arrow-top-r"></div>
-<div class="bar arrow-middle-r"></div>
-<div class="bar arrow-bottom-r"></div>
-</button>
+<div class="micejs-sidebar">
+  <button class="btn-nav">
+    <div class="bar arrow-top-r"></div>
+    <div class="bar arrow-middle-r"></div>
+    <div class="bar arrow-bottom-r"></div>
+  </button>
+  <nav class="nav-container hidden hideNav">
+    <ul class="nav-list">
+      <li class="list-item"><a href="#"><i class="fa fa-home"></i></a></li>
+      <li class="list-item"><a href="#"><i class="fa fa-credit-card-alt"></i></a></li>
+      <li class="list-item"><a href="#"><i class="fa fa-usb"></i></a></li>
+      <li class="list-item"><a href="#"><i class="fa fa-edge"></i></a></li>
+      <li class="list-item"><a href="#"><i class="fa fa-shopping-basket"></i></a></li>
+    </ul>
+  </nav>
 </div>
-<nav class="nav-container hidden hideNav">
-  <ul class="nav-list">
-    <li class="list-item"><a href=""><i class="fa fa-home"></i></a></li>
-    <li class="list-item"><a href=""><i class="fa fa-credit-card-alt"></i></a></li>
-    <li class="list-item"><a href=""><i class="fa fa-usb"></i></a></li>
-    <li class="list-item"><a href=""><i class="fa fa-edge"></i></a></li>
-    <li class="list-item"><a href=""><i class="fa fa-shopping-basket"></i></a></li>
-  </ul>
-</nav>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
  $(window).load(function() {
