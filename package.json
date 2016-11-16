@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "app-webserver": "^0.1.13",
-    "devebot": "^0.1.23"
+    "cheerio": "^0.22.0",
+    "devebot": "^0.1.23",
+    "express-interceptor": "^1.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

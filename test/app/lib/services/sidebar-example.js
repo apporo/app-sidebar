@@ -31,8 +31,17 @@ var Service = function(params) {
   var express = webserverTrigger.getExpress();
   var position = webserverTrigger.getPosition();
 
+  var router = new express();
+  router.set('views', __dirname + '/../../views');
+  router.set('view engine', 'ejs');
+  router.route('/index').get(function(req, res, next) {
+    res.render('index', {});
+  });
+  webserverTrigger.inject(router,
+      contextPath, position.inRangeOfMiddlewares(9), 'app-sidebar-router');
+
   webserverTrigger.inject(express.static(path.join(__dirname, '../../public')),
-      contextPath, position.inRangeOfStaticFiles(), 'app-sidebar-example');
+      contextPath, position.inRangeOfStaticFiles(100), 'app-sidebar-example');
 
   self.getServiceInfo = function() {
     return {};
