@@ -25,7 +25,7 @@
   width: 50px;
   position: fixed;
   left: 20px;
-  bottom: 15px;
+  bottom: 0px;
   margin: 0 auto;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -92,7 +92,7 @@
 .micejs-sidebar .nav-list {
   cursor: pointer;
   list-style-type: none;
-  top: 50%;
+  top: 40%;
   text-align: center;
   position: relative;
   margin: 0;
