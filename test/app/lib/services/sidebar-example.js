@@ -32,7 +32,7 @@ var Service = function(params) {
   var position = webserverTrigger.getPosition();
 
   webserverTrigger.inject(express.static(path.join(__dirname, '../../public')),
-      contextPath, position.inRangeOfStaticFiles(), 'app-sidebar-public');
+      contextPath, position.inRangeOfStaticFiles(), 'app-sidebar-example');
 
   self.getServiceInfo = function() {
     return {};
