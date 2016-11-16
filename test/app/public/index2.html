@@ -30,10 +30,6 @@ button {
  border: 0;
 }
 
-div.bar {
-  background-color: red;
-}
-
 .micejs-sidebar .btn-nav:hover { cursor: pointer; }
 
 .micejs-sidebar .btn-nav:hover .bar { background: #17BEBB; }
@@ -175,73 +171,50 @@ div.bar {
   transition: all 1s ease;
 }
 
- @keyframes
-showNav { from {
- left: -100%;
-}
-
-to { left: 0; }
-}
- @-webkit-keyframes
-showNav { from {
- left: -100%;
-}
-
-to { left: 0; }
-}
- @-moz-keyframes
-showNav { from {
- left: -100%;
-}
-
-to { left: 0; }
-}
- @-o-keyframes
- showNav {
+@keyframes micejs-show-nav {
   from { left: -100%; }
   to { left: 0; }
 }
-
-.micejs-sidebar .showNav {
-  -webkit-animation: showNav .5s ease forwards;
-  -moz-animation: showNav 1s ease forwards;
-  -o-animation: showNav 1s ease forwards;
-  animation: showNav .5s ease forwards;
+@-webkit-keyframes micejs-show-nav {
+  from { left: -100%; }
+  to { left: 0; }
 }
- @keyframes
-hideNav { from {
- left: 0;
+@-moz-keyframes micejs-show-nav {
+  from { left: -100%; }
+  to { left: 0; }
 }
-
-to { left: -100%; }
+@-o-keyframes micejs-show-nav {
+  from { left: -100%; }
+  to { left: 0; }
 }
- @-webkit-keyframes
-hideNav { from {
- left: 0;
-}
-
-to { left: -100%; }
-}
- @-moz-keyframes
-hideNav { from {
- left: 0;
+.micejs-sidebar .show-nav {
+  -webkit-animation: micejs-show-nav .5s ease forwards;
+  -moz-animation: micejs-show-nav 1s ease forwards;
+  -o-animation: micejs-show-nav 1s ease forwards;
+  animation: micejs-show-nav .5s ease forwards;
 }
 
-to { left: -100%; }
+@keyframes micejs-hide-nav {
+  from { left: 0; }
+  to { left: -100%; }
 }
- @-o-keyframes
-hideNav { from {
- left: 0;
+@-webkit-keyframes micejs-hide-nav {
+  from { left: 0; }
+  to { left: -100%; }
 }
-
-to { left: -100%; }
+@-moz-keyframes micejs-hide-nav {
+  from { left: 0; }
+  to { left: -100%; }
 }
-
-.micejs-sidebar .hideNav {
-  -webkit-animation: hideNav 1s ease forwards;
-  -moz-animation: hideNav 1s ease forwards;
-  -o-animation: hideNav 1s ease forwards;
-  animation: hideNav 1s ease forwards;
+@-o-keyframes micejs-hide-nav {
+  from { left: 0; }
+  to { left: -100%; }
+}
+.micejs-sidebar .hide-nav {
+  -webkit-animation: micejs-hide-nav 1s ease forwards;
+  -moz-animation: micejs-hide-nav 1s ease forwards;
+  -o-animation: micejs-hide-nav 1s ease forwards;
+  animation: micejs-hide-nav 1s ease forwards;
 }
 
 .micejs-sidebar .hidden { display: none; }
@@ -259,7 +232,7 @@ h1 { position:absolute; top:150px; left:250px; color:#fff;}
     <div class="bar arrow-middle-r"></div>
     <div class="bar arrow-bottom-r"></div>
   </button>
-  <nav class="nav-container hidden hideNav">
+  <nav class="nav-container hidden hide-nav">
     <ul class="nav-list">
       <li class="list-item"><a href="#"><i class="fa fa-home"></i></a></li>
       <li class="list-item"><a href="#"><i class="fa fa-credit-card-alt"></i></a></li>
@@ -273,7 +246,7 @@ h1 { position:absolute; top:150px; left:250px; color:#fff;}
 <script>
  $(window).load(function() {
    $(".btn-nav").on("click tap", function() {
-     $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
+     $(".nav-container").toggleClass("show-nav hide-nav").removeClass("hidden");
      $(this).toggleClass("animated");
    });
  });
