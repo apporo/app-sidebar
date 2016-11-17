@@ -1,3 +1,7 @@
+.micejs-sidebar {
+  z-index: 99999;
+}
+
 .micejs-sidebar .nav-container {
   position: absolute;
   left: -50%;

@@ -1,35 +1,38 @@
 module.exports = {
   plugins: {
     appSidebar: {
+      contextPath: '/sidebar-bdd',
       entrypoints: [{
-        path: '/sidebar/index',
+        path: '/sidebar-bdd/index',
         icon: {
           cssClass: 'fa fa-home'
         }
       },{
-        path: '/sidebar/index1.html',
+        path: '/sidebar-bdd/index1.html',
         icon: {
           cssClass: 'fa fa-credit-card-alt'
         }
       },{
-        path: '/sidebar/index2.html',
+        path: '/sidebar-bdd/index2.html',
         icon: {
           cssClass: 'fa fa-usb'
         }
       },{
         enabled: false,
-        path: '/sidebar/index3.html',
+        path: '/sidebar-bdd/index3.html',
         icon: {
           cssClass: 'fa fa-usb'
         }
       },{
         enabled: false,
-        path: '/sidebar/index4.html',
+        path: '/sidebar-bdd/index4.html',
         icon: {
           cssClass: 'fa fa-usb'
         }
       }]
     },
-    appWebserver: {}
+    appWebserver: {
+      defaultRedirectUrl: '/sidebar-bdd/index'
+    }
   }
 };
