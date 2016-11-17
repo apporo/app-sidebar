@@ -38,7 +38,7 @@ var Service = function(params) {
     res.render('index', {});
   });
   webserverTrigger.inject(router,
-      contextPath, position.inRangeOfMiddlewares(9), 'app-sidebar-router');
+      contextPath, position.inRangeOfMiddlewares(), 'app-sidebar-router');
 
   webserverTrigger.inject(express.static(path.join(__dirname, '../../public')),
       contextPath, position.inRangeOfStaticFiles(100), 'app-sidebar-example');
