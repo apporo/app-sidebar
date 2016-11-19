@@ -29,7 +29,8 @@ module.exports = {
         icon: {
           cssClass: 'fa fa-usb'
         }
-      }]
+      }],
+      interceptor: 'tamper'
     },
     appWebserver: {
       defaultRedirectUrl: '/sidebar-bdd/index'

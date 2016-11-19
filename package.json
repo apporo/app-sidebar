@@ -1,6 +1,6 @@
 {
   "name": "app-sidebar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Devebot application sidebar layerware",
   "homepage": "https://github.com/apporo/app-sidebar.git",
   "author": {
@@ -29,7 +29,8 @@
     "app-webserver": "^0.1.13",
     "cheerio": "^0.22.0",
     "devebot": "^0.1.23",
-    "express-interceptor": "^1.2.0"
+    "express-interceptor": "^1.2.0",
+    "tamper": "^0.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

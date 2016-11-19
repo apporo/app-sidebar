@@ -1,8 +1,8 @@
 .micejs-sidebar {
-  z-index: 99999;
 }
 
 .micejs-sidebar .nav-container {
+  z-index: 99998;
   position: absolute;
   left: -50%;
   top: 0;
@@ -24,6 +24,7 @@
 }
 
 .micejs-sidebar .btn-nav {
+  z-index: 99999;
   display: block;
   padding: 15px 0;
   width: 50px;
@@ -65,9 +66,12 @@
   transition: all .7s ease;
 }
 
-.micejs-sidebar .animated { z-index: 999; }
+.micejs-sidebar .animated {
+  z-index: 99999;
+}
 
 .micejs-sidebar .animated .arrow-top-r {
+  z-index: 99999;
   -webkit-transform: rotateZ(-45deg) translateY(11px);
   -moz-transform: rotateZ(-45deg) translateY(11px);
   -ms-transform: rotateZ(-45deg) translateY(11px);
@@ -77,6 +81,7 @@
 }
 
 .micejs-sidebar .animated .arrow-middle-r {
+  z-index: 99999;
   -webkit-transform: translateX(25px);
   -moz-transform: translateX(25px);
   -ms-transform: translateX(25px);
@@ -85,6 +90,7 @@
 }
 
 .micejs-sidebar .animated .arrow-bottom-r {
+  z-index: 99999;
   -webkit-transform: rotateZ(45deg) translateY(-11px);
   -moz-transform: rotateZ(45deg) translateY(-11px);
   -ms-transform: rotateZ(45deg) translateY(-11px);
@@ -118,6 +124,14 @@
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+}
+
+.micejs-sidebar li.list-item,
+.micejs-sidebar li.list-item:before,
+.micejs-sidebar li.list-item:after {
+  -webkit-box-sizing: content-box !important;
+  -moz-box-sizing: content-box !important;
+  box-sizing: content-box !important;
 }
 
 .micejs-sidebar .list-item:hover {

@@ -38,10 +38,10 @@ var Service = function(params) {
     res.render('index', {});
   });
   webserverTrigger.inject(router,
-      contextPath, position.inRangeOfMiddlewares(), 'app-sidebar-router');
+      contextPath, position.inRangeOfMiddlewares(), 'app-sidebar-example-router');
 
   webserverTrigger.inject(express.static(path.join(__dirname, '../../public')),
-      contextPath, position.inRangeOfStaticFiles(100), 'app-sidebar-example');
+      contextPath, position.inRangeOfStaticFiles(100), 'app-sidebar-example-public');
 
   self.getServiceInfo = function() {
     return {};
