@@ -32,7 +32,7 @@ module.exports = {
       }],
       interceptor: 'tamper'
     },
-    appWebserver: {
+    appWebweaver: {
       defaultRedirectUrl: '/sidebar-bdd/index'
     }
   }

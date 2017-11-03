@@ -2,7 +2,6 @@
 
 var events = require('events');
 var util = require('util');
-var fs = require('fs');
 var path = require('path');
 var Devebot = require('devebot');
 var Promise = Devebot.require('bluebird');
@@ -25,11 +24,8 @@ var Service = function(params) {
 
   var pluginCfg = lodash.get(params, ['sandboxConfig', 'plugins', 'appSidebar'], {});
   debuglog.isEnabled && debuglog(' - appSidebar config: %s', JSON.stringify(pluginCfg));
-
   var contextPath = pluginCfg.contextPath || '/sidebar';
-  var webserverTrigger = params.webserverTrigger;
-  var express = webserverTrigger.getExpress();
-  var position = webserverTrigger.getPosition();
+  var express = params.webweaverService.express;
 
   var router = new express();
   router.set('views', __dirname + '/../../views');
@@ -37,19 +33,19 @@ var Service = function(params) {
   router.route('/index').get(function(req, res, next) {
     res.render('index', {});
   });
-  webserverTrigger.inject(router,
-      contextPath, position.inRangeOfMiddlewares(), 'app-sidebar-example-router');
 
-  webserverTrigger.inject(express.static(path.join(__dirname, '../../public')),
-      contextPath, position.inRangeOfStaticFiles(100), 'app-sidebar-example-public');
-
-  self.getServiceInfo = function() {
-    return {};
-  };
-
-  self.getServiceHelp = function() {
-    return {};
-  };
+  params.webinjectService.inject([
+    {
+      name: 'app-sidebar-example-public',
+      path: contextPath,
+      middleware: express.static(path.join(__dirname, '../../public'))
+    },
+    {
+      name: 'app-sidebar-example-router',
+      path: contextPath,
+      middleware: router
+    }
+  ]);
 
   debuglog.isEnabled && debuglog(' - constructor end!');
 };
@@ -67,13 +63,13 @@ Service.argumentSchema = {
     "profileConfig": {
       "type": "object"
     },
-    "generalConfig": {
-      "type": "object"
-    },
     "loggingFactory": {
       "type": "object"
     },
-    "webserverTrigger": {
+    "webinjectService": {
+      "type": "object"
+    },
+    "webweaverService": {
       "type": "object"
     }
   }
