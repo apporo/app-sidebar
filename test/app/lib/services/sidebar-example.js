@@ -16,14 +16,8 @@ var Service = function(params) {
 
   var self = this;
 
-  self.logger = params.loggingFactory.getLogger();
-
-  self.getSandboxName = function() {
-    return params.sandboxName;
-  };
-
-  var pluginCfg = lodash.get(params, ['sandboxConfig', 'plugins', 'appSidebar'], {});
-  debuglog.isEnabled && debuglog(' - appSidebar config: %s', JSON.stringify(pluginCfg));
+  var logger = params.loggingFactory.getLogger();
+  var pluginCfg = params.sandboxConfig;
   var contextPath = pluginCfg.contextPath || '/sidebar';
   var express = params.webweaverService.express;
 
@@ -54,18 +48,6 @@ Service.argumentSchema = {
   "id": "sidebarExample",
   "type": "object",
   "properties": {
-    "sandboxName": {
-      "type": "string"
-    },
-    "sandboxConfig": {
-      "type": "object"
-    },
-    "profileConfig": {
-      "type": "object"
-    },
-    "loggingFactory": {
-      "type": "object"
-    },
     "webinjectService": {
       "type": "object"
     },

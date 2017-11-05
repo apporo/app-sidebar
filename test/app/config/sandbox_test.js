@@ -1,39 +1,34 @@
+var contextPath = '/sidebar-bdd';
+
 module.exports = {
+  application: {
+    contextPath: contextPath
+  },
   plugins: {
     appSidebar: {
-      contextPath: '/sidebar-bdd',
+      contextPath: contextPath,
       entrypoints: [{
-        path: '/sidebar-bdd/index',
+        path: contextPath + '/index',
         icon: {
           cssClass: 'fa fa-home'
         }
       },{
-        path: '/sidebar-bdd/index1.html',
+        path: contextPath + '/index1.html',
         icon: {
           cssClass: 'fa fa-credit-card-alt'
         }
       },{
-        path: '/sidebar-bdd/index2.html',
+        path: contextPath + '/index2.html',
         icon: {
           cssClass: 'fa fa-usb'
         }
-      },{
-        enabled: false,
-        path: '/sidebar-bdd/index3.html',
-        icon: {
-          cssClass: 'fa fa-usb'
-        }
-      },{
-        enabled: false,
-        path: '/sidebar-bdd/index4.html',
-        icon: {
-          cssClass: 'fa fa-usb'
-        }
-      }],
+      }]
+    },
+    appWebinject: {
       interceptor: 'tamper'
     },
     appWebweaver: {
-      defaultRedirectUrl: '/sidebar-bdd/index'
+      defaultRedirectUrl: contextPath + '/index'
     }
   }
 };
