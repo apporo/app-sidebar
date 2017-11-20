@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: {
     appSidebar: {
+      sidebarType: 'navbar1', // navbar1, navbar2
       contextPath: contextPath,
       entrypoints: [{
         path: contextPath + '/index',
@@ -59,7 +60,7 @@ module.exports = {
       },{
          path: contextPath + '/index2.html',
         icon: {
-          cssClass: 'fa-calendar-check-o'
+          cssClass: 'fa fa-calendar-check-o'
         },
         text: 'Videos',
         color: '#03a9f4'
